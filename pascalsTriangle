@@ -1,0 +1,24 @@
+//This is LeetCode solution and coding ninjas platform is throwing error for this question
+class Solution {
+    List<Integer> generateRow(int rows){
+        
+        List<Integer> rowList = new ArrayList<Integer>(rows);
+        rowList.add(1);
+        int ans = 1;
+        for(int col=1;col<rows;col++){
+            ans = ans*(rows-col);
+            ans = ans/col;
+            rowList.add(ans);
+        }
+        return rowList;
+    }
+    public List<List<Integer>> generate(int numRows) {
+
+        List<List<Integer>> res = new ArrayList<>(numRows*numRows);
+
+        for(int i=1;i<=numRows;i++){
+            res.add(generateRow(i));
+        }
+        return res;
+    }
+}
