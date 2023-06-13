@@ -1,24 +1,28 @@
-//This is LeetCode solution and coding ninjas platform is throwing error for this question
-class Solution {
-    List<Integer> generateRow(int rows){
-        
-        List<Integer> rowList = new ArrayList<Integer>(rows);
-        rowList.add(1);
-        int ans = 1;
-        for(int col=1;col<rows;col++){
-            ans = ans*(rows-col);
-            ans = ans/col;
-            rowList.add(ans);
-        }
-        return rowList;
-    }
-    public List<List<Integer>> generate(int numRows) {
+import java.io.*;
+import java.util.* ;
 
-        List<List<Integer>> res = new ArrayList<>(numRows*numRows);
+import java.util.ArrayList;
 
-        for(int i=1;i<=numRows;i++){
-            res.add(generateRow(i));
-        }
-        return res;
-    }
+public class Solution {
+	static ArrayList<Long> generateRow(int r){
+		long ans = 1;
+		ArrayList<Long> temp = new ArrayList<Long>(r);
+		temp.add((long)1);
+		for(int col=1;col<r;col++){
+			ans = ans * (r-col);
+			ans = ans/col;
+			temp.add(ans);
+		}
+		return temp;
+	}
+	public static ArrayList<ArrayList<Long>> printPascal(int n) {
+                 // Write your code here.
+		ArrayList<ArrayList<Long>> res = new ArrayList<ArrayList<Long>>(n*n);
+
+		for(int i=1;i<=n;i++){
+			res.add(generateRow(i));
+
+		}
+		return res;
+	}
 }
