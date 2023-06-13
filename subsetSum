@@ -1,0 +1,23 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static void subsetSumHelper(int[]num,int n,int ind,int sum,ArrayList<Integer> res){
+
+        if(ind >= n){
+            res.add(sum);
+            return;
+        }
+        subsetSumHelper(num,n,ind+1,sum+num[ind],res);
+        subsetSumHelper(num,n,ind+1,sum,res);
+    }
+    public static ArrayList<Integer> subsetSum(int num[]) {
+        // Write your code here..
+        int n = num.length;
+
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        subsetSumHelper(num,n,0,0,res);
+        Collections.sort(res);
+        return res;
+    }
+
+}
